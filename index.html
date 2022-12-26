@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple CSS bar graph</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+
+<body onload="generateRandomBars(24)">
+    <div class="container">
+
+        <header>
+            <h1>A CSS-only bar graph made of <code>div</code> elements</h1>
+        </header>
+        <div class="bar-graph" id="main-graph">
+            <div class="bar" style="height: 73%"><code>height: 73%;</code></div>
+            <div class="bar" style="height: 12%"><code>height: 12%;</code></div>
+            <div class="bar" style="height: 84%"><code>height: 84%;</code></div>
+            <div class="bar" style="height: 97%"><code>height: 97%;</code></div>
+            <div class="bar" style="height: 29%"><code>height: 29%;</code></div>
+            <div class="bar" style="height: 72%"><code>height: 72%;</code></div>
+            <div class="bar" style="height: 67%"><code>height: 67%;</code></div>
+            <div class="bar" style="height: 22%"><code>height: 22%;</code></div>
+            <div class="bar" style="height: 51%"><code>height: 51%;</code></div>
+            <div class="bar" style="height: 49%"><code>height: 49%;</code></div>
+            <div class="bar" style="height: 19%"><code>height: 19%;</code></div>
+            <div class="bar" style="height: 13%"><code>height: 13%;</code></div>
+            <div class="bar" style="height: 30%"><code>height: 30%;</code></div>
+            <div class="bar" style="height: 95%"><code>height: 95%;</code></div>
+            <div class="bar" style="height: 11%"><code>height: 11%;</code></div>
+            <div class="bar" style="height: 57%"><code>height: 57%;</code></div>
+            <div class="bar" style="height: 78%"><code>height: 78%;</code></div>
+            <div class="bar" style="height: 17%"><code>height: 17%;</code></div>
+            <div class="bar" style="height: 46%"><code>height: 46%;</code></div>
+            <div class="bar" style="height: 71%"><code>height: 71%;</code></div>
+            <div class="bar" style="height: 63%"><code>height: 63%;</code></div>
+            <div class="bar" style="height: 84%"><code>height: 84%;</code></div>
+            <div class="bar" style="height: 78%"><code>height: 78%;</code></div>
+            <div class="bar" style="height: 51%"><code>height: 51%;</code></div>
+        </div>
+        <p>Hover over a bar to reveal its height. Try dragging the handle in the bottom right to resize the graph.</p>
+
+        <h2>How does it work?</h2>
+        <p>The graph container is a <code>div.bar-graph</code> element, which has the following styling:</p>
+        <pre><code>.bar-graph {
+    display: flex;
+    align-items: flex-end;
+}</code></pre>
+        <p><code>display: flex;</code> displays each of the child elements as one element of a row, and
+            <code>align-items: flex-end;</code> says that we want the bottom edge of each child item to line up at the
+            “end” (i.e. the bottom) of the flex container.
+        </p>
+        <p>The bars themselves are <code>div.bar</code> elements, styled like so:</p>
+        <pre><code>.bar-graph .bar {
+    flex-grow: 1;
+}</code></pre>
+        <p><code>flex-grow: 0;</code> is the default. By changing this value to <code>1</code>, we allow each bar’s
+            width to grow, filling the full width of the graph.</p>
+        <p>Finally, each individual bar has inline styling dictating, as a percentage, how much of the height of the
+            graph to consume. For example:</p>
+        <pre><code>&lt;div class="bar" style="height: 56%"&gt;&lt;/div&gt;</code></pre>
+        <p>For fun, this page includes a bit of JavaScript to generate bars with random height when the page loads. You
+            can click this button to generate new ones:</p>
+        <div class="button-container"><button onclick="generateRandomBars(24)">Generate new bars!</button></div>
+        <p>Even if you disable JavaScript, the page should work just fine, because I prepopulated the graph with some (non-random) bars. You just won’t be able to use the button above.</p>
+        <h2>Who are you?</h2>
+        <p><a href="https://maxkapur.com/">Max Kapur.</a></p>
+    </div>
+</body>
+
+</html>
